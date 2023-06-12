@@ -1,5 +1,7 @@
+using EsperantaVortaro.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,17 +15,22 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-    public static void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
+        services.AddDbContext<VortaroDbContext>(
+            options =>
+                options.UseMySql(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    new MySqlServerVersion(new Version(8, 0, 27))
+                )
+        );
 
         services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
             {
-                builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             });
         });
     }
@@ -39,7 +46,7 @@ public class Startup
 
         app.UseRouting();
 
-        app.UseEndpoints(endpoints => 
+        app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
         });
