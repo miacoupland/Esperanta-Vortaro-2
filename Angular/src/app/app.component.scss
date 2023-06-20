@@ -5,6 +5,6 @@ h1 {
 
 .dict-container {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
 }
