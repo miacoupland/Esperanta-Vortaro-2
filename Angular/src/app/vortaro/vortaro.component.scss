@@ -1,0 +1,17 @@
+.form-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  label {
+    margin-right: 5px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
