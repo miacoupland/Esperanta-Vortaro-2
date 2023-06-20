@@ -1,0 +1,15 @@
+<form [formGroup]="anglaForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <button type="submit" class="btn btn-success" [disabled]="!anglaForm.valid">Search</button>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <label for="angla">Angla</label>
+      <input type="text" id="angla" formControlName="angla" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="esperanto">Esperanto</label>
+      <input type="text" id="esperanto" formControlName="esperanto" class="form-control"/>
+    </div>
+  </div>
+</form>
