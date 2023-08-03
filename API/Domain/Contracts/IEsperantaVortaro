@@ -2,6 +2,6 @@ namespace EsperantaVortaro.Domain.Contracts;
 
 public interface IEsperantaVortaro
 {
-    void AddEntry(Dictionary<string, string> entry);
+    void AddEntry(Vortaro entry);
     Dictionary<string, string> GetEntry(string word);
 }
