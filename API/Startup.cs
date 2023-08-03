@@ -26,6 +26,8 @@ public class Startup
                 )
         );
 
+        services.AddSwaggerDocument();
+
         services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
@@ -38,6 +40,12 @@ public class Startup
     public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UseCors();
+
+        app.UseStaticFiles();
+
+        app.UseOpenApi();
+
+        app.UseSwaggerUi3();
 
         if (env.IsDevelopment())
         {
