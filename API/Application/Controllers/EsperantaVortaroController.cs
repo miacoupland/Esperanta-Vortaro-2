@@ -35,21 +35,17 @@ public class EsperantaVortaroController : ControllerBase
     /// <param name="entry">User requested entry</para,>
     /// <returns>Dictionary entry</returns>
     [HttpPost("GetEntry")]
-    public Dictionary<string, string> GetEntry([FromBody] string word)
+    public Vortaro GetEntry([FromBody] string word)
     {
-        var entry = _dbContext.Vortaro.FirstOrDefault(v => v.Angla == word);
+        var entry = _dbContext.Vortaro.FirstOrDefault(v => v.Angla == word || v.Esperanto == word);
 
         if (entry != null)
         {
-            var dictionary = new Dictionary<string, string>
-            {
-                { "Angla", entry.Angla},
-                { "Esperanto", entry.Esperanto }
-            };
+            var dictionary = new Vortaro { Angla = entry.Angla, Esperanto = entry.Esperanto };
 
             return dictionary;
         }
-        
-        return new Dictionary<string, string>();
+
+        return new Vortaro();
     }
 }
