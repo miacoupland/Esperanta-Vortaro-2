@@ -2,22 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { VortaroComponent } from './vortaro/vortaro.component';
+import { VortaroGetComponent } from './vortaro-get/vortaro-get.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TranslationService } from './vortaro/shared/services/translation.service';
 import { HttpClientModule } from '@angular/common/http';
+import { VortaroRepository } from './shared/vortaro.repository';
+import { VortaroAddComponent } from './vortaro-add/vortaro-add.component';
+import { TranslationService } from './shared/services/translation.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VortaroComponent
+    VortaroGetComponent,
+    VortaroAddComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [TranslationService],
+  providers: [TranslationService, VortaroRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

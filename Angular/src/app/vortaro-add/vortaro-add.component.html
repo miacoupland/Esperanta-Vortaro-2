@@ -1,0 +1,25 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="form-group" class="">
+      <label for="addAngla">Add an entry</label>
+      <input
+        type="text"
+        id="addAngla"
+        formControlName="addAngla"
+        class="form-control"
+      />
+      <label for="addEsperanto">Add Esperanto</label>
+      <input
+        type="text"
+        id="addEsperanto"
+        formControlName="addEsperanto"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <button type="submit" class="btn btn-success" [disabled]="!addForm.valid">
+      Search
+    </button>
+  </div>
+</form>
