@@ -21,12 +21,20 @@ public class EsperantaVortaroController : ControllerBase
     /// <param name="entry">User requested entry</param>
     /// <returns>void</returns>
     [HttpPost("AddEntry")]
-    public void AddEntry([FromBody] Vortaro entry)
+    public IActionResult AddEntry([FromBody] Vortaro entry)
     {
         var newEntry = new Vortaro { Angla = entry.Angla, Esperanto = entry.Esperanto };
 
         _dbContext.Vortaro.Add(newEntry);
         _dbContext.SaveChanges();
+
+        var response = new
+        {
+            Message = "Entry added successfully",
+            Entry = newEntry
+        };
+
+        return Ok(response);
     }
 
     /// <summary>
