@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslationService } from '../shared/services/translation.service';
 
 @Component({
@@ -11,11 +11,11 @@ export class VortaroGetComponent implements OnInit {
   public tradukoForm!: FormGroup;
   public traduko: string = '';
 
-  constructor(private translationService: TranslationService) {}
+  constructor(private translationService: TranslationService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.tradukoForm = new FormGroup({
-      search: new FormControl(),
+    this.tradukoForm = this.formBuilder.group({
+      search: ['', Validators.required]
     });
   }
 

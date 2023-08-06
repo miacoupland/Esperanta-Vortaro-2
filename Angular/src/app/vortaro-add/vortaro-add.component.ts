@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslationService } from '../shared/services/translation.service';
 import { Vortaro } from '../shared/models/vortaro.model';
 
@@ -11,13 +11,13 @@ import { Vortaro } from '../shared/models/vortaro.model';
 export class VortaroAddComponent implements OnInit {
   public addForm!: FormGroup;
 
-  constructor(private translationService: TranslationService) {}
+  constructor(private translationService: TranslationService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.addForm = new FormGroup({
-      addAngla: new FormControl(),
-      addEsperanto: new FormControl(),
-    });
+    this.addForm = this.formBuilder.group({
+      addAngla: ['', Validators.required],
+      addEsperanto: ['', Validators.required]
+    })
   }
 
   public onSubmit(): void {

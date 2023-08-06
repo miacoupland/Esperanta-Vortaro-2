@@ -1,19 +1,22 @@
 <form [formGroup]="tradukoForm" (ngSubmit)="onSubmit()">
-  <div class="row">
-    <button type="submit" class="btn btn-success" [disabled]="!tradukoForm.valid">
-      Search
-    </button>
-  </div>
-  <div class="row">
-    <div class="form-group" class="">
-      <label for="search">Search English or Esperanto</label>
-      <input
-        type="text"
-        id="search"
-        formControlName="search"
-        class="form-control"
-      />
-    </div>
+  <div class="grid grid-cols-6 gap-4">
+    <label for="search" class="mr-4 py-2">Search English or Esperanto:</label>
+    <input
+      type="text"
+      id="search"
+      formControlName="search"
+      placeholder="Search for a word.../Serĉu vorton"
+      class="form-control border-colid border-2 border-green rounded-lg col-span-4 p-2 max-h-10"
+    />
+    <button
+    type="submit"
+    class="bg-green border-solid p-2 rounded-lg max-h-10 text-white"
+    [disabled]="!tradukoForm.valid"
+  >
+    Search
+  </button>
   </div>
 </form>
-{{ traduko }}
+<div class="my-4">
+  <p>Result: {{ traduko }}</p>
+</div>
