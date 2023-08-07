@@ -9,7 +9,8 @@ import { TranslationService } from '../shared/services/translation.service';
 })
 export class VortaroGetComponent implements OnInit {
   public tradukoForm!: FormGroup;
-  public traduko: string = '';
+  public angla: string = '';
+  public esperanto: string = '';
 
   constructor(private translationService: TranslationService, private formBuilder: FormBuilder) {}
 
@@ -22,7 +23,8 @@ export class VortaroGetComponent implements OnInit {
   public onSubmit(): void {
     const formValue = this.tradukoForm.value;
     this.translationService.getEntry(formValue.search).subscribe((v) => {
-      this.traduko = `Angla: ${v.angla} Esperanto: ${v.esperanto}`;
+      this.angla = v.angla;
+      this.esperanto = v.esperanto;
     });
   }
 }
