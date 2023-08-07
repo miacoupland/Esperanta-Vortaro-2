@@ -7,9 +7,6 @@ namespace EsperantaVortaro.Persistence.Entities;
 public class Vortaro
 {
     [Key]
-    [Column("vortaro_id")]
-    public int Id { get; set; }
-
     [Required]
     [Column("angla")]
     public string Angla { get; set; }

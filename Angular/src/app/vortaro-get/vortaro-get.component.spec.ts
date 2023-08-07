@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VortaroComponent } from './vortaro.component';
+import { VortaroGetComponent } from './vortaro-get.component';
 
 describe('VortaroComponent', () => {
-  let component: VortaroComponent;
-  let fixture: ComponentFixture<VortaroComponent>;
+  let component: VortaroGetComponent;
+  let fixture: ComponentFixture<VortaroGetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VortaroComponent ]
+      declarations: [ VortaroGetComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VortaroComponent);
+    fixture = TestBed.createComponent(VortaroGetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

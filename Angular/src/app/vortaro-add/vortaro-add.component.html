@@ -1,0 +1,28 @@
+<h2>Add an entry:</h2>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <div class="grid grid-cols-6 gap-4">
+    <label for="addAngla" class="mr-4 p-2">English:</label>
+    <input
+      type="text"
+      id="addAngla"
+      formControlName="addAngla"
+      placeholder="Add English word"
+      class="form-control border-solid border-2 border-green rounded-lg col-span-4 p-2 max-h-10"
+    />
+    <label for="addEsperanto" class="mr-4 p-2 col-start-1">Esperanto:</label>
+    <input
+      type="text"
+      id="addEsperanto"
+      formControlName="addEsperanto"
+      placeholder="Aldonu Esperantan vorton"
+      class="form-control border-solid border-2 border-green rounded-lg col-span-4 p-2 max-h-10"
+    />
+    <button
+      type="submit"
+      class="bg-green border-solid p-2 rounded-lg max-h-10 overflow-y-hidden text-white"
+      [disabled]="!addForm.valid"
+    >
+      Add entry
+    </button>
+  </div>
+</form>
